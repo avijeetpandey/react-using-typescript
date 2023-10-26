@@ -1,11 +1,19 @@
-export default function CourseGoal() {
+type CourseGoalProps = {
+  title: string;
+  description: string;
+};
+
+export default function CourseGoal({ title, description }: CourseGoalProps) {
   return (
-    <article>
-      <div>
-        <h2>Title</h2>
-        <p>Description</p>
-      </div>
-      <button>Delete</button>
-    </article>
+    title &&
+    description && (
+      <article>
+        <div>
+          <h2>{title}</h2>
+          <p>{description}</p>
+        </div>
+        <button>Delete</button>
+      </article>
+    )
   );
 }
