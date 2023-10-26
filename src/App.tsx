@@ -14,11 +14,11 @@ function App() {
   // can be useState<Array<CourseGoal>
   const [goals, setGoals] = useState<CourseGoalProps[]>([]);
 
-  function handleAddGoal() {
+  function handleAddGoal(goal: string, summary: string) {
     setGoals((previousGoals) => {
       const newGoal: CourseGoalProps = {
-        title: "Learn React + TS2",
-        description: "Learn from the ground up two",
+        title: goal,
+        description: summary,
         id: Math.random()
       };
       return [...previousGoals, newGoal];
@@ -34,7 +34,7 @@ function App() {
       <Header image={{ src: goalsImage, altText: "alt" }}>
         <h1>Your course goals</h1>
       </Header>
-      <NewGoal />
+      <NewGoal onAddGoal={handleAddGoal} />
       <CourseGoalList goals={goals} onDelete={handleDeleteGoal} />
     </main>
   );
