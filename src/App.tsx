@@ -10,7 +10,7 @@ export type CourseGoalProps = {
 };
 
 function App() {
-  // can be useState<Array<CourseGoal>>
+  // can be useState<Array<CourseGoal>
   const [goals, setGoals] = useState<CourseGoalProps[]>([]);
 
   function handleAddGoal() {
