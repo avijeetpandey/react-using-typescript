@@ -1,5 +1,11 @@
+import CourseGoal from "./components/CourseGoal";
+
 function App() {
-  return <></>;
+  return (
+    <main>
+      <CourseGoal />
+    </main>
+  );
 }
 
 export default App;
