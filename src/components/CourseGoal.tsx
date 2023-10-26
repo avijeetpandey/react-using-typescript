@@ -1,17 +1,21 @@
 import { type FC, type PropsWithChildren } from "react";
 
 type CourseGoalProps = {
+  id: number;
   title: string;
   description: string;
+  onDelete: (id: number) => void;
 };
 
 // use this if the component needs to wrapped , gives children property by default
 type CourseGoalPropsWithChildren = PropsWithChildren<CourseGoalProps>;
 
 export default function CourseGoal({
+  id,
   title,
   description,
-  children
+  children,
+  onDelete
 }: CourseGoalPropsWithChildren) {
   return (
     title &&
@@ -22,7 +26,7 @@ export default function CourseGoal({
           <p>{description}</p>
           {children}
         </div>
-        <button>Delete</button>
+        <button onClick={() => onDelete(id)}>Delete</button>
       </article>
     )
   );
