@@ -12,7 +12,7 @@ export default function Header({ image, children }: HeaderProps) {
   return (
     image && (
       <header>
-        <img src={image.src} alt={image.altText} />
+        <img {...image} />
         {children}
       </header>
     )
