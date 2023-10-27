@@ -3,8 +3,9 @@ import goalsImage from "./assets/goals.jpg";
 import { useState } from "react";
 import CourseGoalList from "./components/CourseGoalList";
 import NewGoal from "./components/NewGoal";
+import Form from "./components/Form";
+import Input from "./components/Input";
 import { Button } from "./components/Button";
-import Container from "./components/Container";
 
 export type CourseGoalProps = {
   title: string;
@@ -31,9 +32,20 @@ function App() {
     setGoals((previousGoals) => previousGoals.filter((goal) => goal.id !== id));
   }
 
+  function handleSave(data: unknown) {
+    const extractedData = data as { name: string; age: string };
+    console.log(extractedData);
+  }
+
   return (
     <main>
-      <Container as={Button}>Click me </Container>
+      <Form onSave={handleSave}>
+        <Input label="name" type="text" id="name" />
+        <Input label="age" type="number" id="age" />
+        <p>
+          <Button el="button">Save</Button>
+        </p>
+      </Form>
       <Header image={{ src: goalsImage, altText: "alt" }}>
         <h1>Your course goals</h1>
       </Header>
