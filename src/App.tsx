@@ -3,8 +3,8 @@ import goalsImage from "./assets/goals.jpg";
 import { useState } from "react";
 import CourseGoalList from "./components/CourseGoalList";
 import NewGoal from "./components/NewGoal";
-import Input from "./components/Input";
 import { Button } from "./components/Button";
+import Container from "./components/Container";
 
 export type CourseGoalProps = {
   title: string;
@@ -33,14 +33,7 @@ function App() {
 
   return (
     <main>
-      <Input label="Your name" id="name" />
-      <Input label="Your age" id="age" />
-      <p>
-        <Button el="anchor" href="https://google.com">
-          A Link
-        </Button>
-        <Button el="button">A button</Button>
-      </p>
+      <Container as={Button}>Click me </Container>
       <Header image={{ src: goalsImage, altText: "alt" }}>
         <h1>Your course goals</h1>
       </Header>
